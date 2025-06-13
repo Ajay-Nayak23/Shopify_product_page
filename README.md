@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# 🛍️ Shopify Product Page
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React-based frontend application that displays products from a Shopify Storefront using the Shopify Storefront GraphQL API. It allows users to browse products, view product details, add them to a cart, and proceed to checkout using Shopify’s hosted checkout.
 
-## Available Scripts
+## 🚀 Live Demo
 
-In the project directory, you can run:
+🔗 [Deployed on Netlify](https://snazzy-wisp-0caef2.netlify.app/)
 
-### `npm start`
+## 📸 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- ✅ Fetches and displays product data from Shopify
+- ✅ Product detail view with image, description, and price
+- ✅ Add-to-cart functionality using global state
+- ✅ Cart summary page with checkout redirect to Shopify
+- ✅ Responsive UI with a custom color palette
+- ✅ Secure API handling with `.env` and Netlify environment variables
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🧩 Tech Stack
 
-### `npm test`
+- **React** (with Hooks)
+- **React Router**
+- **Shopify Storefront GraphQL API**
+- **React Context API** for global cart state
+- **CSS** for styling (custom palette)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🗂️ Project Structure
 
-### `npm run build`
+    src/
+    ├── components/
+    │ ├── Home.js
+    │ ├── Product.js
+    │ └── Cart.js
+    ├── context/
+    │ └── CartContext.js
+    ├── utils/
+    │ └── shopify.js
+    ├── App.js
+    ├── index.js
+    └── styles/
+    └── style1.css
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Shopify Storefront API Setup
+To run this project, you’ll need to connect it to your Shopify store using the Storefront API. Follow these steps:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    1. Create a Shopify Partner Account (if you don't have one)
+    Visit: https://partners.shopify.com/
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Create a new Development Store under "Stores" > "Add store" > "Create development store"
 
-### `npm run eject`
+2. Create a Storefront Access Token
+   
+        In your development store admin, go to
+        Apps → Develop apps → Create a new app (e.g., “Storefront Client”)
+        
+        Under Storefront API → click Configure Storefront API scopes
+        
+        Select:
+        
+        Read products and collections
+        
+        Read product tags
+        
+        (Add more if needed)
+        
+        Click Save, then click Install app
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+        Scroll down and click Create storefront access token
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+        Copy the Access Token and Shop domain
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ 3. Configure Environment Variables
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+        In your .env file:
+          REACT_APP_SHOPIFY_DOMAIN=your-shop-name.myshopify.com
+          REACT_APP_SHOPIFY_STOREFRONT_TOKEN=your-access-token
+   
+    
+## 🔐 Environment Variables
 
-## Learn More
+Create a `.env` file in the root of your project with the following:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    REACT_APP_SHOPIFY_DOMAIN=your-shop-name.myshopify.com
+    REACT_APP_SHOPIFY_STOREFRONT_TOKEN=your-storefront-access-token
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+These are securely managed via Netlify's environment settings in production.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📦 Deployment
 
-### Analyzing the Bundle Size
+This app is deployed via **Netlify**. To deploy it yourself:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Push the code to a GitHub repo
+2. Go to [Netlify](https://netlify.com/)
+3. Connect your GitHub repository
+4. Set the build command: `npm run build`
+5. Set the publish directory: `build`
+6. Add your `.env` keys to **Netlify > Site Settings > Environment Variables**
 
-### Making a Progressive Web App
+## 🧪 Future Improvements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Add quantity selection and cart item updates
+- Add filtering and search
+- Implement user login with Shopify Multipass or Firebase
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ 
